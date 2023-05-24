@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>link shortner</title>
+    <style>
+        body {
+            background-color: #b156fe;
+            display: flex;
+            align-items: center;
+            align-content: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        input,
+        label,
+        button {
+            margin: 10px;
+        }
+
+        button {
+            outline: none;
+            background-color: #b156fe;
+            color: white;
+            /* border: none; */
+            border-radius: 3px;
+            padding: 5px;
+
+        }
+
+        button:hover {
+            background-color: blueviolet;
+        }
+
+        .btn {
+            margin: 10px;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            font-size: large;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            <label for="url">Enter Url </label>
+            <input class="input" type="url" name="url" id="url" {% if url %} value={{url}} {% endif %}>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+        {% if s_url %}
+        <a href="{{s_url}}" target="_blank">{{s_url}}</a>
+        {% endif %}
+  
+    </div>
+
+</body>
+
+</html>
