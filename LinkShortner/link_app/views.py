@@ -21,9 +21,9 @@ def encrypt(url):
         n.save()
 
 
-    print("-------------------------------------------")
-    print(surl)
-    print("-------------------------------------------")
+    #print("-------------------------------------------")
+    #print(surl)
+    #print("-------------------------------------------")
     surl = Urls.objects.filter(website=url)[0]
     return surl.ids
 
@@ -32,12 +32,12 @@ def decrypt(idinp):
     try:
         return Urls.objects.get(ids=idinp).website
     except:
-        print( "error occured")
+        #print( "error occured")
         return None
      
 
 def new(request):
-    print(request)
+    #print(request)
     if request.method == 'POST':
         url = request.POST.get('url')
         if url=="":
@@ -53,7 +53,7 @@ def new(request):
     return render(request , 'home.html')
 
 def redirect_url(request,urls):
-    print(urls)
+    #print(urls)
 
 
     surl = decrypt(urls)
