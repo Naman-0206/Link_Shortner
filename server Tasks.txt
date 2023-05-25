@@ -1,0 +1,5 @@
+cd ~;
+source /home/link/.virtualenvs/venv/bin/activate;
+cd /home/link/Link_Shortner/LinkShortner;
+python manage.py shell -c "from link_app.models import Urls; from datetime import datetime , timedelta; cutoff_date = datetime.now().date() - timedelta(days=30); Urls.objects.filter(created_at__lte=cutoff_date).delete()"
+deactivate
